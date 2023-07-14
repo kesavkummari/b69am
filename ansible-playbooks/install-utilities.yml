@@ -1,0 +1,28 @@
+---
+- name: Install essential packages
+  hosts: any  # Replace with the target hosts or groups
+
+  tasks:
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+      become: true  # If root privileges are required, set this to true
+
+    - name: Install Curl
+      apt:
+        name: curl
+        state: present
+      become: true
+
+    - name: Install Wget
+      apt:
+        name: wget
+        state: present
+      become: true
+
+    - name: Install Unzip
+      apt:
+        name: unzip
+        state: present
+      become: true
