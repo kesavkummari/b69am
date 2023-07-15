@@ -1,0 +1,28 @@
+---
+- name: Launch EC2 Instance
+  hosts: localhost
+  gather_facts: False
+  vars:
+    region: "us-west-2"
+    instance_type: "t2.micro"
+    ami_id: "ami-xxxxxxxx"  # Replace with your desired AMI ID
+    key_name: "my-key-pair"  # Replace with your key pair name
+    security_group: "my-security-group"  # Replace with your security group name
+    subnet_id: "subnet-xxxxxxxx"  # Replace with your subnet ID
+
+  tasks:
+    - name: Launch EC2 Instance
+      ec2:
+        region: "{{ region }}"
+        instance_type: "{{ instance_type }}"
+        image: "{{ ami_id }}"
+        key_name: "{{ key_name }}"
+        group: "{{ security_group }}"
+        vpc_subnet_id: "{{ subnet_id }}"
+        assign_public_ip: yes
+        wait: yes
+      register: ec2_instance
+
+    - name: Display Instance IP
+      debug:
+        var: ec2_instance.instances[0].public_ip_address
