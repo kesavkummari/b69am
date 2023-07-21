@@ -14,7 +14,6 @@
             "name": "{{user `applicaiton_name`}}",
             "type": "amazon-ebs",
             "ssh_username": "ubuntu",
-            "ssh_private_key_file": "{{ user `ssh_private_key` }}",
             "force_deregister": "true",
             "force_delete_snapshot": "true",
             "associate_public_ip_address": "true", 
