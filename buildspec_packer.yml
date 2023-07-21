@@ -11,7 +11,7 @@ phases:
       - mv jq /usr/local/bin
       - pwd
       - ls -ltr $CODEBUILD_SRC_DIR
-      - cd $CODEBUILD_SRC_DIR/infra/hcl-packer/
+      - cd $CODEBUILD_SRC_DIR/hcl-packer/
       - echo "Validating packer-web.json"
       - packer validate packer-web.json
   build:
