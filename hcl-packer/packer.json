@@ -1,0 +1,118 @@
+{
+    "variables": {
+        "packer_profile": "packer-ec2-s3",
+        "applicaiton_name": "cloudbinary",
+        "application_version": "1.0.0",
+        "region": "us-east-1",
+        "instance_type": "t2.micro",
+        "source_ami": "ami-007855ac798b5175e",
+        "ami_aws_account_id": "420815905200"
+    },
+    "builders": [
+        {
+            "name": "{{user `applicaiton_name`}}",
+            "type": "amazon-ebs",
+            "profile": "default",
+            "ssh_username": "ubuntu",
+            "force_deregister": "true",
+            "force_delete_snapshot": "true",
+            "associate_public_ip_address": "true", 
+            "region": "{{user `region`}}",
+            "source_ami": "{{user `source_ami`}}",
+            "instance_type": "{{user `instance_type`}}",
+            "iam_instance_profile": "{{user `packer_profile`}}",
+            "ami_name": "{{user `applicaiton_name`}}-{{user `application_version`}}",
+            "tags": {
+                "Name": "{{user `applicaiton_name`}}",
+                "CreatedBy": "Packer"
+            }
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get clean",
+                "sudo cp -r /var/lib/apt/lists /var/lib/apt/lists.old",
+                "sudo rm -rf /var/lib/apt/lists/partial/",
+                "sudo apt-get clean",
+                "sudo apt-get update",
+                "sudo apt-get install software-properties-common -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo add-apt-repository --yes --update ppa:ansible/ansible",
+                "sudo apt-get install ansible -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get install git -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get install curl -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get install wget -y"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get update",
+                "sudo apt-get install zip -y"
+            ]
+
+        },
+        {
+            "type": "shell",
+            "execute_command": "sudo -u root /bin/bash -c '{{.Path}}'",
+            "scripts": [
+                "awscli.sh"
+            ]
+
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo aws s3 cp s3://codewithck.com/tomcat.service /opt/tomcat.service"
+            ]
+        },
+        {
+            "type": "ansible-local",
+            "playbook_file": "./tomcat-install.yml",
+            "extra_arguments": [
+                "-vvvv"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo aws s3 cp s3://codewithck.com/tomcat.service /etc/systemd/system/tomcat.service"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo aws s3 cp s3://codewithck.com/devops.war /opt/tomcat/webapps/"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+            "sudo systemctl enable tomcat",
+            "sudo systemctl restart tomcat"
+            ]
+        }
+    ]
+
+}
