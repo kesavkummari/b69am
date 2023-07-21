@@ -6,6 +6,7 @@
         "region": "us-east-1",
         "instance_type": "t2.micro",
         "source_ami": "ami-007855ac798b5175e",
+        "ssh_private_key": "/home/ubuntu/.ssh/id_rsa",
         "ami_aws_account_id": "420815905200"
     },
     "builders": [
@@ -13,6 +14,7 @@
             "name": "{{user `applicaiton_name`}}",
             "type": "amazon-ebs",
             "ssh_username": "ubuntu",
+            "ssh_private_key_file": "{{ user `ssh_private_key` }}",
             "force_deregister": "true",
             "force_delete_snapshot": "true",
             "associate_public_ip_address": "true", 
