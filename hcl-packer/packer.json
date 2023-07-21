@@ -1,7 +1,7 @@
 {
     "variables": {
         "packer_profile": "packer-ec2-s3",
-        "applicaiton_name": "cloudbinary",
+        "applicaiton_name": "kesav",
         "application_version": "1.0.0",
         "region": "us-east-1",
         "instance_type": "t2.micro",
