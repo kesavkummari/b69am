@@ -22,7 +22,7 @@ phases:
       - ls -lrt $CODEBUILD_SRC_DIR
       - cd $CODEBUILD_SRC_DIR/hcl-packer/
       - ls -lrt
-      - packer build $CODEBUILD_SRC_DIR/hcl-packer/buildspec_packer.yml
+      - packer build buildspec_packer.yml -debug
   post_build:
     commands:
       - echo "Packer Job is completed on `date`"
