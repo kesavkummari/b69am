@@ -23,6 +23,7 @@ phases:
       - cd $CODEBUILD_SRC_DIR/hcl-packer/
       - ls -lrt
       - packer build packer.json -color=false  | tee build.log
+      - cat build.log
       # packer build -color=false packer_cis.json | tee build.log
   post_build:
     commands:
