@@ -12,7 +12,6 @@
         {
             "name": "{{user `applicaiton_name`}}",
             "type": "amazon-ebs",
-            "profile": "default",
             "ssh_username": "ubuntu",
             "force_deregister": "true",
             "force_delete_snapshot": "true",
