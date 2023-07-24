@@ -27,7 +27,7 @@ phases:
       - aws configure set aws_session_token `jq -r '.Token' aws_credentials.json`
       - cat aws_credentials.json
       - echo "Building HashiCorp Packer template, packer-web.json"
-      - packer build packer-web.json
+      #- packer build packer-web.json
   post_build:
     commands:
       - echo "HashiCorp Packer build completed on `date`"
