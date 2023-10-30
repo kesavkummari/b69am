@@ -1,20 +1,23 @@
-|              Role                            |                                       Responsibilities                                                  |
-| **Infrastructure Automation**                | - Set up and maintain infrastructure as code (IAC) using tools like CloudFormation, Terraform.          |
-|                                              | - Automate the provisioning and scaling of AWS services.                                                |
-| **Continuous Integration & Deployment**     | - Implement CI/CD pipelines using AWS services such as CodePipeline, CodeBuild, CodeDeploy.            |
-|                                              | - Automate testing, building, and deployment processes.                                                  |
-| **Configuration Management**                 | - Use tools like Ansible, Chef, Puppet to configure and manage servers.                                 |
-|                                              | - Maintain and ensure consistent environment configurations.                                            |
-| **Monitoring & Logging**                     | - Implement monitoring solutions using CloudWatch, AWS X-Ray, and third-party tools.                    |
-|                                              | - Set up centralized logging using services like CloudWatch Logs, ELK stack, or others.                |
-| **Security & Compliance**                    | - Implement AWS security best practices and ensure compliance with policies.                            |
-|                                              | - Manage IAM roles, policies, and ensure proper encryption in transit and at rest.                      |
-| **Microservices Management**                 | - Deploy and manage containerized applications using ECS, EKS, and other orchestration tools.           |
-|                                              | - Ensure proper scaling and load balancing for applications.                                            |
-| **Optimization**                             | - Analyze and optimize application performance and costs.                                               |
-|                                              | - Recommend best practices for cost-saving and performance enhancements.                                |
-| **Collaboration & Communication**            | - Work with development, QA, and product teams to ensure end-to-end delivery.                           |
-|                                              | - Communicate effectively to ensure everyone is aligned on DevOps goals and processes.                   |
-| **Disaster Recovery & Backup**               | - Implement and test disaster recovery processes using AWS services.                                    |
-|                                              | - Ensure regular backups of data using AWS services like S3, Glacier, and others.                       |
+# Roles and Responsibilities of an AWS DevOps Engineer
+
+| **Role**                                      | **Responsibilities**                                                                                                            |
+|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| **Infrastructure Automation**                  | - Provision and manage AWS resources using IAC tools like CloudFormation, Terraform.                                           |
+|                                                | - Automate provisioning, configuration, and scaling of AWS services.                                                           |
+| **Continuous Integration & Deployment (CI/CD)**| - Design and implement CI/CD pipelines using AWS services such as AWS CodePipeline, CodeBuild, and CodeDeploy.                |
+|                                                | - Automate testing, building, and deployment processes.                                                                        |
+| **Configuration Management**                   | - Configure and manage servers using tools like Ansible, Chef, or Puppet.                                                      |
+|                                                | - Ensure consistent environment configurations across different deployments.                                                   |
+| **Monitoring & Logging**                       | - Set up monitoring using AWS CloudWatch, AWS X-Ray, and other third-party tools.                                             |
+|                                                | - Implement centralized logging using AWS CloudWatch Logs, ELK Stack, or other tools.                                         |
+| **Security & Compliance**                      | - Implement AWS security best practices, manage IAM roles and policies.                                                        |
+|                                                | - Ensure encryption in transit and at rest using tools like AWS KMS and ensure data security with AWS Secrets Manager.         |
+| **Microservices & Container Management**       | - Deploy and manage applications using Amazon ECS or EKS.                                                                     |
+|                                                | - Handle container orchestration, service discovery, and load balancing.                                                      |
+| **Optimization**                               | - Analyze and optimize application performance and infrastructure costs.                                                       |
+|                                                | - Provide recommendations on best practices for performance enhancements and cost-saving.                                     |
+| **Collaboration & Communication**              | - Collaborate with developers, QA teams, and other IT staff to ensure smooth and reliable deployments.                        |
+|                                                | - Communicate to ensure alignment with DevOps processes and goals.                                                            |
+| **Disaster Recovery & Backup**                 | - Design and implement disaster recovery strategies using AWS services.                                                       |
+|                                                | - Ensure regular backups of essential data using Amazon S3 or AWS Backup.                                                     |
 
